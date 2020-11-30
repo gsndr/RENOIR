@@ -160,7 +160,7 @@ def SparseAutoencoder(x_train, y_train, x_test, y_test):
     history= model.fit(XTraining, XTraining,
                       batch_size={{choice([32,64, 128,256,512])}},
                       epochs=150,
-                      verbose=2,
+                      verbose=20,
                       callbacks=callbacks_list,
                       validation_data=(XValidation,XValidation))
 
@@ -212,7 +212,7 @@ def hypersearch(train_X1, train_Y1, test_X1, test_Y1, pathModel):
                                           trials=trials)
     print("Best performing model chosen hyper-parameters:")
     print(best_run)
-    outfile = open(pathModel+'Autoencoder.csv', 'w')
+    outfile = open(pathModel+'.csv', 'w')
     outfile.write("\nHyperopt trials")
 
     outfile.write("\ntid , loss , learning_rate , Dropout , batch_size, time")
@@ -231,7 +231,7 @@ def hypersearch(train_X1, train_Y1, test_X1, test_Y1, pathModel):
     outfile.write('\nBest model:\n ')
     outfile.write(str(best_run))
     outfile.flush()
-    global_config.best_model.save(pathModel+'autoencoder.h5')
+    global_config.best_model.save(pathModel+'.h5')
     encoder = Model(inputs=global_config.best_model.input, outputs=global_config.best_model.get_layer('encod2').output)
     encoder.summary()
 

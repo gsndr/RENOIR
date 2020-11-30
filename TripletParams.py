@@ -18,7 +18,7 @@ from keras.models import Model
 from keras import callbacks
 from hyperas import optim
 from hyperas.distributions import choice, uniform
-import pandas as pd
+
 
 import keras.backend as K
 
@@ -169,7 +169,6 @@ def Siamese(x_train, y_train, x_test, y_test):
     print(r)
     f1_test =r[8]
     print(f1_test)
-    scoreTest=f1_test
     global_config.savedScore.append(cmTest)
     Y_pred = model.predict([XValidation[:, 0], XValidation[:, 1],XValidation[:, 2]])
     pred = Y_pred[:, 0:1].ravel() < Y_pred[:, 1:2].ravel()
@@ -177,14 +176,9 @@ def Siamese(x_train, y_train, x_test, y_test):
     r = getResult(cmTrain)
     print(r)
     f1_train = r[8]
-    #score = f1_train
-    print(f1_train)
+
     global_config.savedTrain.append(cmTrain)
     print('Best score', global_config.best_score2)
-    
-    if global_config.best_scoreTest < scoreTest:
-        global_config.best_scoreTest = scoreTest
-        global_config.best_model_test = model
 
     if global_config.best_score2 < score:
         global_config.best_score2 = score
@@ -204,7 +198,7 @@ def hypersearch(train_X1, train_Y1, test_X1, test_Y1, modelName):
     global_config.test_Y = test_Y1
     global_config.savedScore = []
     global_config.savedTrain = []
-    global_config.best_score = np.inf
+    global_config.best_score = 0
     global_config.best_model = None
     global_config.best_time = 0
 
@@ -215,9 +209,9 @@ def hypersearch(train_X1, train_Y1, test_X1, test_Y1, modelName):
                                           functions=[create_base_network, euclidean_distance,
                                                      triplet_loss, eucl_dist_output_shape,  accuracy, getResult],
                                           algo=tpe.suggest,
-                                          max_evals=4,
+                                          max_evals=2,
                                           trials=trials)
-    outfile = open(modelName+'triplet0.csv', 'w')
+    outfile = open(modelName+'softplus.csv', 'w')
     outfile.write("\nHyperopt trials")
 
 
@@ -248,5 +242,4 @@ def hypersearch(train_X1, train_Y1, test_X1, test_Y1, modelName):
     outfile.write(str(best_run))
 
     global_config.best_model.save(modelName)
-    global_config.best_model_test.save(modelName+'Test')
     return global_config.best_model, global_config.best_time
