@@ -207,7 +207,7 @@ class Execution():
             self.file.write('\n')
 
 
-            model, best_time2 = triplet.hypersearch(x_train, train_Y, x_test, test_Y,
+            model, best_time2 = triplet.hypersearch(x_train, y_train, test_X, test_Y,
                                                             pathModels)
 
             model.save(pathModels + 'softplus.h5')
