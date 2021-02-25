@@ -25,7 +25,7 @@ class Datasets():
 
 
     def preprocessing(self):
-        if ((self._testpath == 'KDDCUP99')):
+        if ((self._testpath == 'KDDCUP99') or (self._testpath == 'KDDTest+')):
             train_df = pd.read_csv(self._pathDataset + self._dsConf.get('path') + '.csv')
             test_df = pd.read_csv(self._pathDataset + self._dsConf.get('pathTest') + '.csv')
             self._cls = train_df.columns[-1]
@@ -152,53 +152,6 @@ class Datasets():
         self._cls=_cls
         print(self._cls)
         return self._cls[0]
-
-    def getParameters(self):
-        ''' return CNN parameters for each dataset'''
-
-        if ((self._testpath == 'KDDCUP99') or (self._testpath == 'KDDTest-21')):
-
-            p = {
-                'batch_size': 128,
-                'epochs': 150,
-                'optimizer': Adam,
-                'kernel_initializer': 'glorot_uniform',
-                'losses': 'binary_crossentropy',
-                'activation': 'relu',
-                'dropout1': 0.3,
-                'dropout2': 0.8,
-                'lr': 0.004
-            }
-
-
-        elif (self._testpath == 'UNSW_NB15'):
-            p = {
-                'batch_size': 32,
-                'epochs': 150,
-                'optimizer': Adam,
-                'kernel_initializer': 'glorot_uniform',
-                'losses': 'binary_crossentropy',
-                'activation': 'relu',
-                'dropout1': 0.3,
-                'dropout2': 0.08,
-                'lr': 0.0002
-            }
-
-
-        elif ((self._testpath == 'CICIDS2017')):
-
-            p = {
-                'batch_size': 256,
-                'epochs': 150,
-                'optimizer': Adam,
-                'kernel_initializer': 'glorot_uniform',
-                'losses': 'binary_crossentropy',
-                'activation': 'relu',
-                'dropout1': 0.2,
-                'dropout2': 0.08,
-                'lr': 0.0002}
-
-        return p
 
 
 

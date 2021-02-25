@@ -27,7 +27,7 @@ def datasetException():
 
         if (dataset is None) :
             raise Exception()
-        if not ((dataset == 'AAGM') or (dataset == 'CICIDS2017')  or (dataset == 'KDDCUP99')):
+        if not ((dataset == 'KDDTest+') or (dataset == 'KDDTest-21') or (dataset == 'UNSW_NB15') or (dataset == 'CICIDS2017')  or (dataset == 'KDDCUP99')):
             raise ValueError()
     except Exception:
         print("The name of dataset is null: use KDDTest+ or KDDTest-21 or UNSW_NB15 or CICIDS2017")
