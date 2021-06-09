@@ -4,9 +4,23 @@ The repository contains code refered to the work:
 
 _Giuseppina Andresini, Annalisa Appice, Donato Malerba_
 
-[Autoencoder-based Deep Metric Learning for Network Intrusion Detection]
+[Autoencoder-based Deep Metric Learning for Network Intrusion Detection](https://www.sciencedirect.com/science/article/pii/S002002552100462X)
 
 Please cite our work if you find it useful for your research and work.
+
+```
+@article{ANDRESINI2021,
+title = {Autoencoder-based deep metric learning for network intrusion detection},
+journal = {Information Sciences},
+year = {2021},
+issn = {0020-0255},
+doi = {https://doi.org/10.1016/j.ins.2021.05.016},
+url = {https://www.sciencedirect.com/science/article/pii/S002002552100462X},
+author = {Giuseppina Andresini and Annalisa Appice and Donato Malerba},
+keywords = {Network intrusion detection, Deep metric learning, Triplet network, Autoencoder}
+}
+
+```
 
 
 
