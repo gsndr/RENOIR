@@ -209,7 +209,7 @@ def hypersearch(train_X1, train_Y1, test_X1, test_Y1, modelName):
                                           functions=[create_base_network, euclidean_distance,
                                                      triplet_loss, eucl_dist_output_shape,  accuracy, getResult],
                                           algo=tpe.suggest,
-                                          max_evals=2,
+                                          max_evals=20,
                                           trials=trials)
     outfile = open(modelName+'softplus.csv', 'w')
     outfile.write("\nHyperopt trials")
