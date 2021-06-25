@@ -207,14 +207,14 @@ class Execution():
             self.file.write('\n')
 
 
-            model, best_time2 = triplet.hypersearch(x_train, y_train, test_X, test_Y,
+            model, best_time2 = triplet.hypersearch(x_train, y_train, x_test, test_Y,
                                                             pathModels)
 
             model.save(pathModels + 'softplus.h5')
 
         else:
             print('Load CNN')
-            modelName = 'maxPlus.h5'
+            modelName = 'softplus.h5'
             print(pathModels)
             model = load_model(pathModels + modelName, compile=False)
             model.summary()
