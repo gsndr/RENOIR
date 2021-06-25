@@ -37,8 +37,11 @@ Packages need are:
 * [Scikit-learn](https://scikit-learn.org/stable/)
 
 ## Data
-The datasets used for experiments are accessible from [__DATASETS__](https://drive.google.com/drive/folders/1qOHhY1iS0Qa_Y1RfAIgKqdbr2ANKA_Sc?usp=sharing). Original dataset is transformed in a binary classification: "_attack_, _normal_" (_oneCls files).
-The repository contains the orginal dataset (folder: "original") and  the dataset after the preprocessing phase (folder: "numeric") 
+The datasets used for experiments are accessible from [__DATASETS__](https://drive.google.com/drive/folders/1jLb9I80w16IU_AkWr9H5e7vTOcypQsLw?usp=sharing). 
+The repository contains the dataset after the preprocessing phase (folder: "numeric") 
+Corresponding labels: 
+*0: "Attacks"
+* 1: "Normal"
 
 Preprocessing phase is done mapping categorical feature and performing the Min Max scaler.
 
@@ -68,4 +71,4 @@ Global variables are stored in __RENOIR.conf__  file
 
 ## Download datasets
 
-[All datasets](https://drive.google.com/drive/folders/1qOHhY1iS0Qa_Y1RfAIgKqdbr2ANKA_Sc?usp=sharing)
+[All datasets](https://drive.google.com/drive/folders/1jLb9I80w16IU_AkWr9H5e7vTOcypQsLw?usp=sharing)
