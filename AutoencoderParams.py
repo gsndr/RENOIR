@@ -200,6 +200,15 @@ def hypersearch(train_X1, train_Y1, test_X1, test_Y1, pathModel):
     global_config.test_X = test_X1
     global_config.test_Y =test_Y1
 
+    global_config.best_score = np.inf
+    global_config.best_scoreTest = 0
+    global_config.best_model = None
+    global_config.best_model_test = None
+    global_config.best_score2 = 0
+    global_config.best_time = 0
+    global_config.savedScore = []
+    global_config.savedTrain = []
+
 
 
     trials = Trials()
@@ -208,7 +217,7 @@ def hypersearch(train_X1, train_Y1, test_X1, test_Y1, pathModel):
     best_run, best_model = optim.minimize(model=Autoencoder,
                                           data=data,
                                           algo=tpe.suggest,
-                                          max_evals=2,
+                                          max_evals=20,
                                           trials=trials)
     print("Best performing model chosen hyper-parameters:")
     print(best_run)
