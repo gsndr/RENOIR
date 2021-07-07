@@ -40,7 +40,7 @@ Packages need are:
 The datasets used for experiments are accessible from [__DATASETS__](https://drive.google.com/drive/folders/1jLb9I80w16IU_AkWr9H5e7vTOcypQsLw?usp=sharing). 
 The repository contains the dataset after the preprocessing phase (folder: "numeric") 
 Corresponding labels: 
-*0: "Attacks"
+* 0: "Attacks"
 * 1: "Normal"
 
 Preprocessing phase is done mapping categorical feature and performing the Min Max scaler.
